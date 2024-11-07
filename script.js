@@ -2,19 +2,58 @@ const fileStructure = {
     "Ralph Carvalho": {
         "About": {
             "about.txt": { type: "txt", content: `
-Nickname: Firebase Alchemist
+<h1>Nickname: Firebase Alchemist</h1>
+<h2>Coding Style:</h2>
+<ul>
+  <li>Views projects as experiments, seeking innovative solutions.</li>
+  <li>Exploits unconventional methods, resulting in "Frankenstein" projects.</li>
+</ul>
+<h2>Favorite Motto:</h2>
+<ul>
+  <li>Stands by the principle "If it works, don't mess with it."</li>
+  <li>Pushes boundaries in frontend development with Firebase.</li>
+</ul>
+<h2>Fun Fact:</h2>
+<ul>
+  <li>Self-proclaimed "Frontend Mad Scientist" and Full-Stack-Free Rebel.</li>
+  <li>Specializes in transforming ideas into innovative web applications using unique technologies.</li>
+</ul>
+` },
+"skills.txt": { type: "txt", content: `
+<div style="font-size: 20px; font-weight: bold;">Technical Skills</div>
+<ul>
+  <li>SQL</li>
+  <li>Python</li>
+  <li>HTML5</li>
+  <li>JavaScript</li>
+  <li>CSS3</li>
+  <li>Apps Script</li>
+  <li>C</li>
+  <li>C++</li>
+</ul>
 
-Coding Style:
-• Views projects as experiments, seeking innovative solutions.
-• Exploits unconventional methods, resulting in "Frankenstein" projects.
+<div style="font-size: 20px; font-weight: bold; margin-top: 20px;">Software Tools</div>
+<ul>
+  <li>Excel Database Connectivity</li>
+</ul>
 
-Favorite Motto:
-• Stands by the principle "If it works, don't mess with it."
-• Pushes boundaries in frontend development with Firebase.
+<div style="font-size: 20px; font-weight: bold; margin-top: 20px;">Non-Technical Skills</div>
+<ul>
+  <li>Good Observation</li>
+  <li>Leadership</li>
+  <li>Teamwork</li>
+  <li>Spatial Mental Simulation</li>
+  <li>Problem-Solving</li>
+  <li>Quick Thinking</li>
+</ul>
 
-Fun fact:
-• Self-proclaimed "Frontend Mad Scientist" and Full-Stack-Free Rebel.
-• Specializes in transforming ideas into innovative web applications using unique technologies.
+<div style="font-size: 20px; font-weight: bold; margin-top: 20px;">Communication Skills</div>
+<ul>
+  <li>Written and Oral Communication in English, Hindi, and Marathi</li>
+</ul>
+` },
+"profilepic.txt": { type: "txt", content: `
+    <img src="https://res.cloudinary.com/degzo3jzl/image/upload/v1726588323/RC_idxagw.jpg" alt="Profile Picture" style="max-width: 100%; border-radius: 50%;border: 2px solid #ccc; height: auto;">
 ` }
         },
         "Social": {
@@ -26,32 +65,62 @@ Fun fact:
         "Projects": {
             "Nexta": {
                 "nexta.txt": { type: "txt", content: `
-Nexta: Full-Stack Web Application for Freelancers and Clients
-• Allows freelancers to create profiles, showcase skills, and apply to jobs.
-• Provides clients with job posting and application viewing.
-• Built with React, Firebase, and Tailwind CSS.
-• Features include user authentication, job postings, job search, real-time chat, profile editing, job posting and application management, and email notifications.
+<h1>Nexta: Full-Stack Web Application for Freelancers and Clients</h1>
+<ul>
+  <li>Allows freelancers to create profiles, showcase skills, and apply to jobs.</li>
+  <li>Provides clients with job posting and application viewing.</li>
+  <li>Built with React, Firebase, and Tailwind CSS.</li>
+  <li>Features include:
+    <ul>
+      <li>User authentication</li>
+      <li>Job postings</li>
+      <li>Job search</li>
+      <li>Real-time chat</li>
+      <li>Profile editing</li>
+      <li>Job posting and application management</li>
+      <li>Email notifications</li>
+    </ul>
+  </li>
+</ul>
                     ` },
                 "nexta.exe": { type: "exe", link: "https://github.com/RA-L-PH/Nexta" },
             },
             "J-A-R-V-I-S": {
                 "j-a-r-v-i-s.txt": { type: "txt", content: `
-J-A-R-V-I-S
-• Streamlines everyday tasks from command line.
-• Includes scheduling, reminders, weather updates, basic calculations, and information retrieval.
-• User-friendly and efficient, uses Python's libraries for accurate responses.
-• Enhances productivity and simplifies routine operations.
+<h1>J-A-R-V-I-S</h1>
+<ul>
+  <li>Streamlines everyday tasks from the command line.</li>
+  <li>Includes:
+    <ul>
+      <li>Scheduling</li>
+      <li>Reminders</li>
+      <li>Weather updates</li>
+      <li>Basic calculations</li>
+      <li>Information retrieval</li>
+    </ul>
+  </li>
+  <li>User-friendly and efficient, uses Python's libraries for accurate responses.</li>
+  <li>Enhances productivity and simplifies routine operations.</li>
+</ul>
                     ` },
                 "j-a-r-v-i-s.exe": { type: "exe", link: "https://github.com/RA-L-PH/J-A-R-V-I-S" },
             },
             "healtify" :{
                 "healtify.txt": { type: "txt", content: `
-Healtify: Comprehensive Health Assistant
-• Built using React and Vite.
-• Powerful Gemini API.
-• Offers disease diagnosis, medication recommendations, and health condition identification.
-• Features interactive chatbot for real-time assistance.
-• Delivers reliable health information and personalized medical guidance.
+<h1>Healtify: Comprehensive Health Assistant</h1>
+<ul>
+  <li>Built using React and Vite.</li>
+  <li>Powered by the Gemini API.</li>
+  <li>Offers:
+    <ul>
+      <li>Disease diagnosis</li>
+      <li>Medication recommendations</li>
+      <li>Health condition identification</li>
+    </ul>
+  </li>
+  <li>Features an interactive chatbot for real-time assistance.</li>
+  <li>Delivers reliable health information and personalized medical guidance.</li>
+</ul>
                     ` },
                 "healtify.exe": { type: "exe", link: "https://github.com/RA-L-PH/healtify" },
             }
@@ -183,7 +252,7 @@ function renderMainContent(structure) {
 function openFile(filename, fileData) {
     if (fileData.type === "txt") {
         document.getElementById("popupTitle").innerText = filename;
-        document.getElementById("popupText").innerText = fileData.content;
+        document.getElementById("popupText").innerHTML = fileData.content;
         document.getElementById("popup").style.display = "block";
     } else if (fileData.type === "exe") {
         window.open(fileData.link, "_blank");
