@@ -126,7 +126,7 @@ const fileStructure = {
             }
         },
         "Expertise": {
-            "Programming Languages" : {
+            "Languages" : {
                 "c.jpg": { type: "jpg", icon: "https://img.icons8.com/fluency/48/c-programming.png" },
                 "python.jpg": { type: "jpg", icon: "https://img.icons8.com/color/48/python.png" },
                 "javascript.jpg": { type: "jpg", icon: "https://img.icons8.com/color/48/javascript.png" },
