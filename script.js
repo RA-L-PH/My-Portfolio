@@ -212,7 +212,7 @@ function changeView(viewType) {
 
 
 const socialLinks = {
-    "Twitter": { url: "https://x.com/Ralphcarvalho04", icon: "fab fa-twitter" },
+    "Twitter": { url: "https://x.com/Ralphcarvalho04", icon: "fa-brands fa-x-twitter" },
     "LinkedIn": { url: "https://www.linkedin.com/in/ralph-carvalho-614b78257/", icon: "fab fa-linkedin" },
     "Instagram": { url: "https://www.instagram.com/ralph.carvalho.09/", icon: "fab fa-instagram" },
     "GitHub": { url: "https://github.com/RA-L-PH", icon: "fab fa-github" },
