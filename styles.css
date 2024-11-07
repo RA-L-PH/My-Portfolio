@@ -198,6 +198,7 @@ body {
 
 button, input {
     height: 40px;
+    border-radius: 50px;
 }
 
 /* Dark theme for button and input */
