@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+
+#sidebar {
+    width: 300px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    &.active {
+        transform: translateX(0);
+    }
+}
+
+#mainContent {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    @media (max-width: 768px) {
+        padding: 0;
+    }
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+#fileDisplay {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    
+    @media (max-width: 768px) {
+        justify-content: flex-start;
+    }
+}
+
+/* Sidebar specific styles */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+/* Icons and text aligned horizontally for sidebar */
+.sidebar-item i {
+    margin-right: 10px;
+}
+
+/* Sidebar indentation */
+.sub-folder {
+    display: none;
+    margin-left: 20px;
+}
+
+.sub-folder.open {
+    display: block;
+}
+
+/* Main content styles for List View */
+.list-view .file, .list-view .folder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.list-view .file i, .list-view .folder i {
+    margin-right: 10px;
+}
+
+/* Main content small, medium, and large icon views with names below icons */
+.icon-view-small .file, .icon-view-small .folder,
+.icon-view-medium .file, .icon-view-medium .folder,
+.icon-view-large .file, .icon-view-large .folder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.icon-view-small .file, .icon-view-small .folder {
+    width: 80px;
+}
+
+.icon-view-small .file i, .icon-view-small .folder i {
+    font-size: 24px;
+}
+
+.icon-view-medium .file, .icon-view-medium .folder {
+    width: 100px;
+}
+
+.icon-view-medium .file i, .icon-view-medium .folder i {
+    font-size: 32px;
+}
+
+.icon-view-large .file, .icon-view-large .folder {
+    width: 150px;
+}
+
+.icon-view-large .file i, .icon-view-large .folder i {
+    font-size: 48px;
+}
+
+/* Dark theme */
+.dark-theme {
+    background-color: #333;
+    color: #ddd;
+}
+
+.dark-theme #sidebar {
+    background-color: #444;
+}
+
+.dark-theme .popup {
+    background-color: #555;
+}
+
+/* Popup styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.popup-content {
+    position: relative;
+}
+
+.popup-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button, input {
+    height: 40px;
+}
+
+/* Dark theme for button and input */
+.dark-theme button, .dark-theme input {
+    background-color: #444;
+    color: #ddd;
+    border: 1px solid #555;
+}
+
+/* Forward and Backward Buttons */
+#forwardButton, #backwardButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+#forwardButton:hover, #backwardButton:hover {
+    background-color: #0056b3;
+}
+
+/* Dark theme for Forward and Backward Buttons */
+.dark-theme #forwardButton, .dark-theme #backwardButton {
+    background-color: #0056b3;
+}
+
+.dark-theme #forwardButton:hover, .dark-theme #backwardButton:hover {
+    background-color: #003f7f;
+}
+
+/* Search Bar */
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Dark theme for Search Bar */
+.dark-theme #searchBar {
+    background-color: #444;
+    border-color: #555;
+    color: #ddd;
+}
+
+/* View Dropdown */
+#viewDropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Dark theme for View Dropdown */
+.dark-theme #viewDropdown {
+    background-color: #444;
+    border-color: #555;
+    color: #ddd;
+}
+
+#viewDropdown:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Dark theme for View Dropdown focus */
+.dark-theme #viewDropdown:focus {
+    border-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .popup-title {
+        font-size: 18px;
+    }
+
+    .close {
+        font-size: 18px;
+        top: 10px;
+        right: 10px;
+    }
+
+    button, input {
+        width: 100%;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .popup-title {
+        font-size: 16px;
+    }
+
+    .close {
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+    }
+
+    button, input {
+        width: 100%;
+        height: 30px;
+    }
+}

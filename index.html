@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <title>Ralph Carvalho</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="themeToggle" onclick="toggleTheme()">🌙/☀️</div>
+    <div id="sidebar"></div>
+    <div id="mainContent">
+        <div class="navigation">
+            <button onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+            <button onclick="goForward()"><i class="fa-solid fa-arrow-right"></i></button>
+            <input type="text" placeholder="Search..." oninput="searchFiles(event)">
+            <select id="viewDropdown" onchange="changeView(this.value)">
+                <option value="list">List</option>
+                <option value="small">Small Icons</option>
+                <option value="medium">Medium Icons</option>
+                <option value="large">Large Icons</option>
+            </select>
+        </div>
+        <div id="addressBar" style="width: 100%;"></div><br/><br/>
+        <div id="fileDisplay" class="icon-view-small"></div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3 class="popup-title" id="popupTitle"></h3>
+            <p id="popupText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
