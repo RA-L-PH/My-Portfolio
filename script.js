@@ -171,7 +171,7 @@ const fileStructure = {
 <ul>
   <li><strong>Double-click</strong> a folder to open it.</li>
   <li>Use <strong>Back</strong> to return to the previous folder.</li>
-  <li>Click the path in the <strong>address bar</strong> to jump to specific sections.</li>
+  <li>Click the path in the <strong>side bar</strong> to jump to specific sections.</li>
 </ul>
 
 <h2>2. Opening Files</h2>
