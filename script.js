@@ -209,3 +209,44 @@ function changeView(viewType) {
     const fileDisplay = document.getElementById("fileDisplay");
     fileDisplay.className = viewType === "list" ? "list-view" : `icon-view-${viewType}`;
 }
+
+
+const socialLinks = {
+    "Twitter": { url: "https://x.com/Ralphcarvalho04", icon: "fab fa-twitter" },
+    "LinkedIn": { url: "https://www.linkedin.com/in/ralph-carvalho-614b78257/", icon: "fab fa-linkedin" },
+    "Instagram": { url: "https://www.instagram.com/ralph.carvalho.09/", icon: "fab fa-instagram" },
+    "GitHub": { url: "https://github.com/RA-L-PH", icon: "fab fa-github" },
+    "Email": { url: "mailto:ralphaacarvalho@gmail.com", icon: "fas fa-envelope" },
+    "Phone": { url: "tel:7021746421", icon: "fas fa-phone-alt" },
+};
+
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    showContextMenu(event.clientX, event.clientY);
+});
+
+document.addEventListener('click', function() {
+    hideContextMenu();
+});
+
+function showContextMenu(x, y) {
+    const contextMenu = document.getElementById('contextMenu');
+    contextMenu.innerHTML = generateContextMenuItems(socialLinks);
+    contextMenu.style.left = `${x}px`;
+    contextMenu.style.top = `${y}px`;
+    contextMenu.style.display = 'block';
+}
+
+function hideContextMenu() {
+    const contextMenu = document.getElementById('contextMenu');
+    contextMenu.style.display = 'none';
+}
+
+function generateContextMenuItems(links) {
+    let items = '<ul>';
+    for (const [name, { url, icon }] of Object.entries(links)) {
+        items += `<li><a href="${url}" target="_blank"><i class="${icon}"></i> ${name}</a></li>`;
+    }
+    items += '</ul>';
+    return items;
+}
