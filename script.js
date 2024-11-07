@@ -163,7 +163,34 @@ const fileStructure = {
                 "git.jpg": { type: "jpg", icon: "https://img.icons8.com/color/48/git.png" },
                 "figma.jpg": { type: "jpg", icon: "https://img.icons8.com/color/48/figma.png" },
             },
-        }
+        },
+        "Readme.txt": { type: "txt", content: `
+            <h1>Portfolio Usage Guide</h1>
+
+<h2>1. Navigating Folders</h2>
+<ul>
+  <li><strong>Double-click</strong> a folder to open it.</li>
+  <li>Use <strong>Back</strong> to return to the previous folder.</li>
+  <li>Click the path in the <strong>address bar</strong> to jump to specific sections.</li>
+</ul>
+
+<h2>2. Opening Files</h2>
+<ul>
+  <li><strong>Single-click</strong> any file to view its contents.</li>
+  <li>For links, executables (.exe) open in a new tab.</li>
+</ul>
+
+<h2>3. Context Menu</h2>
+<ul>
+  <li><strong>Right-click</strong> to open a menu for social links and theme toggle.</li>
+  <li>Select <strong>Toggle Theme</strong> to switch between light and dark mode.</li>
+</ul>
+
+<h2>4. Changing View</h2>
+<ul>
+  <li>Switch between <strong>list view</strong> and <strong>icon view</strong> for different layouts.</li>
+</ul>
+            `},
     }
 };
 
@@ -289,12 +316,12 @@ function changeView(viewType) {
 
 
 const socialLinks = {
-    "Twitter": { url: "https://x.com/Ralphcarvalho04", icon: "fa-brands fa-x-twitter" },
+    "X": { url: "https://x.com/Ralphcarvalho04", icon: "fa-brands fa-x-twitter" },
     "LinkedIn": { url: "https://www.linkedin.com/in/ralph-carvalho-614b78257/", icon: "fab fa-linkedin" },
     "Instagram": { url: "https://www.instagram.com/ralph.carvalho.09/", icon: "fab fa-instagram" },
     "GitHub": { url: "https://github.com/RA-L-PH", icon: "fab fa-github" },
     "Email": { url: "mailto:ralphaacarvalho@gmail.com", icon: "fas fa-envelope" },
-    "Phone": { url: "tel:7021746421", icon: "fas fa-phone-alt" },
+    "Phone": { url: "tel:7021746421", icon: "fas fa-phone" },
 };
 
 document.addEventListener('contextmenu', function(event) {
@@ -324,6 +351,8 @@ function generateContextMenuItems(links) {
     for (const [name, { url, icon }] of Object.entries(links)) {
         items += `<li><a href="${url}" target="_blank"><i class="${icon}"></i> ${name}</a></li>`;
     }
+    // Add Toggle Theme option
+    items += `<li onclick="toggleTheme()"><i class="fas fa-adjust"></i> Toggle Theme</li>`;
     items += '</ul>';
     return items;
 }

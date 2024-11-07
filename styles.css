@@ -21,7 +21,7 @@ body {
     padding: 20px;
     overflow-y: auto;
     min-height: 100vh;
-    
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
         width: 100%;
@@ -31,9 +31,10 @@ body {
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
     }
-    
+
     &.active {
         transform: translateX(0);
+        transition: transform 0.3s ease;
     }
 }
 
@@ -42,7 +43,7 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    
+
     @media (max-width: 768px) {
         padding: 0;
     }
@@ -52,9 +53,12 @@ body {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    
+
     @media (max-width: 768px) {
-        flex-direction: column;
+        display: flex; /* Show navigation buttons on smaller screens */
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 10px;
     }
 }
 
@@ -63,7 +67,7 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     align-items: flex-start;
-    
+
     @media (max-width: 768px) {
         justify-content: flex-start;
     }
@@ -99,11 +103,11 @@ body {
     align-items: center;
     text-align: left;
     width: 100%;
-    
+
     @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
     }
 }
 
@@ -119,7 +123,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
+
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -127,6 +131,7 @@ body {
 
 .icon-view-small .file, .icon-view-small .folder {
     width: 80px;
+    min-width: 80px; /* Ensures consistent width */
 }
 
 .icon-view-small .file i, .icon-view-small .folder i {
@@ -135,6 +140,7 @@ body {
 
 .icon-view-medium .file, .icon-view-medium .folder {
     width: 100px;
+    min-width: 100px; /* Ensures consistent width */
 }
 
 .icon-view-medium .file i, .icon-view-medium .folder i {
@@ -143,6 +149,7 @@ body {
 
 .icon-view-large .file, .icon-view-large .folder {
     width: 150px;
+    min-width: 150px; /* Ensures consistent width */
 }
 
 .icon-view-large .file i, .icon-view-large .folder i {
@@ -217,7 +224,7 @@ button, input {
     cursor: pointer;
     border-radius: 5px;
     margin: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 #forwardButton:hover, #backwardButton:hover {
@@ -298,12 +305,13 @@ button, input {
     button, input {
         width: 100%;
         height: 35px;
+        padding: 8px 15px; /* Adjusted for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .popup {
-        width: 100%;
+        width: 95%; /* Adjusted for smaller screens */
         padding: 10px;
     }
 
@@ -349,4 +357,18 @@ button, input {
 
 .context-menu li:hover {
     background-color: #f0f0f0;
+}
+
+/* Dark theme for context menu */
+.dark-theme .context-menu {
+    background-color: #444;
+    border-color: #555;
+    color: #ddd;
+    li a{
+        color: #ddd;
+    }
+}
+
+.dark-theme .context-menu li:hover {
+    background-color: #555;
 }
